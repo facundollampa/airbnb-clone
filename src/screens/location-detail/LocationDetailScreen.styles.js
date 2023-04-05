@@ -1,4 +1,4 @@
-import { StyleSheet, StatusBar, Dimensions } from 'react-native'
+import { StatusBar, StyleSheet } from 'react-native'
 import { COLORS, FONT_SIZE } from '../../utils/theme'
 
 export const styles = StyleSheet.create({
@@ -6,13 +6,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: COLORS.white,
     marginTop: StatusBar.currentHeight
-  },
-  imageContainer: {
-    height: 300
-  },
-  image: {
-    width: Dimensions.get('screen').width,
-    height: 300
   },
   textContainer: {
     padding: 20

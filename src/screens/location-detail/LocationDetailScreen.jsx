@@ -4,18 +4,13 @@ import MapView, { Marker } from 'react-native-maps'
 import { styles } from './LocationDetailScreen.styles'
 import { Ionicons } from '@expo/vector-icons'
 import { COLORS } from '../../utils/theme'
+import { Carousel } from '../../components'
 
 export const LocationDetailScreen = ({ route }) => {
   const { item } = route.params
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.imageContainer}>
-        <ScrollView horizontal pagingEnabled style={styles.imageContainer}>
-          {item.images.map((image, idx) => (
-            <Image key={idx} source={image} style={styles.image} resizeMode='cover' />
-          ))}
-        </ScrollView>
-      </View>
+      <Carousel images={item.images} />
 
       <View style={styles.textContainer}>
         <Text style={styles.title}>{item.title}</Text>
