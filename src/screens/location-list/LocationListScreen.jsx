@@ -19,7 +19,7 @@ export const LocationListScreen = ({ navigation }) => {
   const renderItem = ({ item }) => (
     <LocationCard
       location={item}
-      onPress={navigation.navigate('Detalle', { item })}
+      onPress={() => navigation.navigate('Detalle', { item })}
     />
   )
 
