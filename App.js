@@ -4,15 +4,15 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { HomeScreen } from './src/screens/home/HomeScreen'
 import { ProfileScreen } from './src/screens/profile/ProfileScreen'
-import { LocationListScreen } from './src/screens/location-list/LocationListScreen'
+import { LocationListStackScreen } from './src/screens/location-list/LocationListStackScreen'
 import { Ionicons } from '@expo/vector-icons'
 import { COLORS, SPACING } from './src/utils/theme'
 
 const Tab = createBottomTabNavigator()
 
 const TAB_ICON = {
-  Home: 'home',
-  Profile: 'person',
+  Inicio: 'home',
+  Perfil: 'person',
   Explorar: 'search'
 }
 
@@ -35,9 +35,9 @@ export default function App () {
     <>
       <NavigationContainer>
         <Tab.Navigator screenOptions={screenOptions}>
-          <Tab.Screen name='Home' component={HomeScreen} />
-          <Tab.Screen name='Explorar' component={LocationListScreen} />
-          <Tab.Screen name='Profile' component={ProfileScreen} />
+          <Tab.Screen name='Inicio' component={HomeScreen} />
+          <Tab.Screen name='Explorar' component={LocationListStackScreen} />
+          <Tab.Screen name='Perfil' component={ProfileScreen} />
         </Tab.Navigator>
       </NavigationContainer>
       <StatusBar style='auto' />
