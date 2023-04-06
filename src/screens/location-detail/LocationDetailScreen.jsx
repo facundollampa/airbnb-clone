@@ -31,15 +31,15 @@ export const LocationDetailScreen = ({ route }) => {
         style={styles.map}
         initialRegion={{
           latitude: item.locationCoordinates.latitude,
-          logitude: item.locationCoordinates.logitude,
+          longitude: item.locationCoordinates.longitude,
           latitudeDelta: 0.002,
-          logitudeDelta: 0.002
+          longitudeDelta: 0.002
         }}
       >
         <Marker
           coordinate={{
             latitude: item.locationCoordinates.latitude,
-            logitude: item.locationCoordinates.logitude
+            longitude: item.locationCoordinates.longitude
           }}
           title={item.title}
         />
