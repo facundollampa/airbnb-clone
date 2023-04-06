@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, SafeAreaView, FlatList, Pressable, Image } from 'react-native'
+import { SCREENS } from '../../utils/screens'
 import { styles } from './LocationListScreen.styles'
 import { data } from '../../api/data'
 
@@ -19,7 +20,7 @@ export const LocationListScreen = ({ navigation }) => {
   const renderItem = ({ item }) => (
     <LocationCard
       location={item}
-      onPress={() => navigation.navigate('Detalle', { item })}
+      onPress={() => navigation.navigate(SCREENS.DETAILS, { item })}
     />
   )
 
