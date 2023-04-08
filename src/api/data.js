@@ -14,7 +14,8 @@ export const data = [
     locationCoordinates: {
       latitude: -24.1893858,
       longitude: -65.2938462
-    }
+    },
+    url: 'https://example.com'
   },
   {
     id: '2',
@@ -31,7 +32,8 @@ export const data = [
     locationCoordinates: {
       latitude: -24.1893858,
       longitude: -65.2938462
-    }
+    },
+    url: 'https://example.com'
   },
   {
     id: '3',
@@ -48,7 +50,8 @@ export const data = [
     locationCoordinates: {
       latitude: -24.1893858,
       longitude: -65.2938462
-    }
+    },
+    url: 'https://example.com'
   },
   {
     id: '4',
@@ -65,7 +68,8 @@ export const data = [
     locationCoordinates: {
       latitude: -24.1893858,
       longitude: -65.2938462
-    }
+    },
+    url: 'https://example.com'
   },
   {
     id: '5',
@@ -82,7 +86,8 @@ export const data = [
     locationCoordinates: {
       latitude: -24.1893858,
       longitude: -65.2938462
-    }
+    },
+    url: 'https://example.com'
   },
   {
     id: '6',
@@ -99,7 +104,8 @@ export const data = [
     locationCoordinates: {
       latitude: -24.1893858,
       longitude: -65.2938462
-    }
+    },
+    url: 'https://example.com'
   },
   {
     id: '7',
@@ -116,6 +122,7 @@ export const data = [
     locationCoordinates: {
       latitude: -24.1893858,
       longitude: -65.2938462
-    }
+    },
+    url: 'https://example.com'
   }
 ]

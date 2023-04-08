@@ -1,10 +1,15 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { ImageBackground, SafeAreaView, Text } from 'react-native'
+import { styles } from './HomeScreen.styles'
 
 export const HomeScreen = () => {
   return (
-    <View>
-      <Text>Esta es la pantalla de inicio</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ImageBackground style={styles.bgImage} source={require('../../../assets/images/main.jpeg')}>
+        <Text style={styles.title}>
+          Viaja y disfruta!
+        </Text>
+      </ImageBackground>
+    </SafeAreaView>
   )
 }

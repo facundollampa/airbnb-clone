@@ -1,54 +1,29 @@
 import { StatusBar } from 'expo-status-bar'
-import { StyleSheet } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { HomeScreen } from './src/screens/home/HomeScreen'
-import { ProfileScreen } from './src/screens/profile/ProfileScreen'
-import { LocationListStackScreen } from './src/screens/location-list/LocationListStackScreen'
-import { Ionicons } from '@expo/vector-icons'
-import { COLORS, SPACING } from './src/utils/theme'
+import { MainStackScreen } from './src/screens/location-list/MainStackScreen'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { LocationDetailScreen } from './src/screens/location-detail/LocationDetailScreen'
+import { LocationDetailWebScreen } from './src/screens/location-detail/LocationDetailWebScreen'
+import { UserProvider } from './src/contexts/UserContext'
 
-const Tab = createBottomTabNavigator()
-
-const TAB_ICON = {
-  Inicio: 'home',
-  Perfil: 'person',
-  Explorar: 'search'
-}
-
-const screenOptions = ({ route }) => {
-  const iconName = TAB_ICON[route.name]// TAB_ICON[Home]
-  return {
-    tabBarIcon: ({ size, color }) => (
-      <Ionicons name={iconName} size={size} color={color} />
-    ),
-    tabBarActiveTintColor: COLORS.primary,
-    tabBarInactiveTintColor: COLORS.inactive,
-    headerShown: false,
-    tabBarStyle: styles.tabBar
-
-  }
-}
+const LocationListStack = createNativeStackNavigator()
 
 export default function App () {
   return (
     <>
-      <NavigationContainer>
-        <Tab.Navigator screenOptions={screenOptions}>
-          <Tab.Screen name='Inicio' component={HomeScreen} />
-          <Tab.Screen name='Explorar' component={LocationListStackScreen} />
-          <Tab.Screen name='Perfil' component={ProfileScreen} />
-        </Tab.Navigator>
-      </NavigationContainer>
+      <UserProvider>
+        <NavigationContainer>
+          <LocationListStack.Navigator screenOptions={{ headerShown: false }}>
+            {/* //Pantallas con Tab */}
+            <LocationListStack.Screen name='Main' component={MainStackScreen} />
+            {/* //Pantallas sin Tab */}
+            <LocationListStack.Screen name='LocationDetail' component={LocationDetailScreen} />
+            <LocationListStack.Screen name='LocationDetailWeb' component={LocationDetailWebScreen} />
+          </LocationListStack.Navigator>
+        </NavigationContainer>
+      </UserProvider>
+
       <StatusBar style='auto' />
     </>
   )
 }
-
-const styles = StyleSheet.create({
-  tabBar: {
-    height: SPACING.xxxl,
-    paddingBottom: SPACING.xs,
-    paddingTop: SPACING.xs
-  }
-})
