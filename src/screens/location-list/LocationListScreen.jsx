@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, SafeAreaView, FlatList, Pressable, Image } from 'react-native'
+import { SafeAreaView, FlatList } from 'react-native'
+import { SCREENS } from '../../utils/screens'
 import { styles } from './LocationListScreen.styles'
 // import { data } from '../../api/data'
-import { SearchBar } from '../../components/search-bar/SearchBar'
+import { SearchBar, LocationCard } from '../../components'
 import { getLocationList } from '../../api/location.service'
 
 export const LocationListScreen = ({ navigation }) => {
@@ -24,14 +25,11 @@ export const LocationListScreen = ({ navigation }) => {
       .catch(err => console.log(err))
   }, [])
 
-  const location = ({ item }) => (
-    <Pressable onPress={() => navigation.navigate('LocationDetail', { item })}>
-      <View style={styles.itemContainer}>
-        <Image source={{ uri: `https://drive.google.com/uc?id=${item.images[0]}` }} style={styles.itemImage} />
-        <Text style={styles.itemTitle}>{item.title}</Text>
-        <Text style={styles.itemPrice}>{item.price}</Text>
-      </View>
-    </Pressable>
+  const renderItem = ({ item }) => (
+    <LocationCard
+      location={item}
+      onPress={() => navigation.navigate(SCREENS.LOCATION_DETAIL, { item })}
+    />
   )
 
   return (
@@ -39,7 +37,7 @@ export const LocationListScreen = ({ navigation }) => {
       <SearchBar handleSearch={handleSearch} searchQuery={searchQuery} />
       <FlatList
         data={filteredLocations}
-        renderItem={location}
+        renderItem={renderItem}
         keyExtractor={item => item.id}
         style={styles.itemList}
       />
