@@ -6,6 +6,7 @@ import { COLORS, SPACING } from '../../utils/theme'
 import { Ionicons } from '@expo/vector-icons'
 import { HomeScreen } from '../home/HomeScreen'
 import { ProfileScreen } from '../profile/ProfileScreen'
+import { SCREENS } from '../../utils/screens'
 
 const Tab = createBottomTabNavigator()
 
@@ -31,9 +32,9 @@ const screenOptions = ({ route }) => {
 export const MainStackScreen = () => {
   return (
     <Tab.Navigator screenOptions={screenOptions}>
-      <Tab.Screen name='Home' options={{ title: 'Inicio' }} component={HomeScreen} />
-      <Tab.Screen name='Search' options={{ title: 'Explorar' }} component={LocationListScreen} />
-      <Tab.Screen name='Profile' options={{ title: 'Perfil' }} component={ProfileScreen} />
+      <Tab.Screen name={SCREENS.HOME} options={{ title: 'Inicio' }} component={HomeScreen} />
+      <Tab.Screen name={SCREENS.EXPLORE} options={{ title: 'Explorar' }} component={LocationListScreen} />
+      <Tab.Screen name={SCREENS.PROFILE} options={{ title: 'Perfil' }} component={ProfileScreen} />
     </Tab.Navigator>
   )
 }

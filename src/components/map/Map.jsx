@@ -1,8 +1,8 @@
 import MapView, { Marker } from 'react-native-maps'
 import React from 'react'
-import { styles } from './styles'
+import { styles } from './Map.styles'
 
-export function Map ({ title, latitude, longitude }) {
+export const Map = ({ title, latitude, longitude }) => {
   const DELTA = 0.002
 
   return (

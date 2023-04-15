@@ -1,7 +1,8 @@
 export const SCREENS = {
-  HOME: 'Inicio',
-  EXPLORER: 'Explorar',
-  PROFILE: 'Perfil',
-  LIST: 'ExplorarLista',
-  DETAILS: 'Detalle'
+  MAIN: 'Main',
+  HOME: 'Home',
+  EXPLORE: 'Search',
+  PROFILE: 'Profile',
+  LOCATION_DETAIL: 'LocationDetail',
+  LOCATION_DETAIL_WEB: 'LocationDetailWeb'
 }
