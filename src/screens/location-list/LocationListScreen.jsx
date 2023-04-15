@@ -1,17 +1,27 @@
 import React from 'react'
 import { View, Text, SafeAreaView, FlatList, Pressable, Image } from 'react-native'
+import { SCREENS } from '../../utils/screens'
 import { styles } from './LocationListScreen.styles'
 import { data } from '../../api/data'
 
-export const LocationListScreen = ({ navigation }) => {
-  const location = ({ item }) => (
-    <Pressable onPress={() => navigation.navigate('Detalle', { item })}>
+function LocationCard ({ location, onPress }) {
+  return (
+    <Pressable onPress={onPress}>
       <View style={styles.itemContainer}>
-        <Image source={item.images[0]} style={styles.itemImage} />
-        <Text style={styles.itemTitle}>{item.title}</Text>
-        <Text style={styles.itemPrice}>{item.price}</Text>
+        <Image source={location.images[0]} style={styles.itemImage} />
+        <Text style={styles.itemTitle}>{location.title}</Text>
+        <Text style={styles.itemPrice}>{location.price}</Text>
       </View>
     </Pressable>
+  )
+}
+
+export const LocationListScreen = ({ navigation }) => {
+  const renderItem = ({ item }) => (
+    <LocationCard
+      location={item}
+      onPress={() => navigation.navigate(SCREENS.DETAILS, { item })}
+    />
   )
 
   return (
@@ -19,7 +29,7 @@ export const LocationListScreen = ({ navigation }) => {
 
       <FlatList
         data={data}
-        renderItem={location}
+        renderItem={renderItem}
         keyExtractor={item => item.id}
         style={styles.itemList}
       />

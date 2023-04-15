@@ -1,21 +1,15 @@
-import React from 'react'
-import { View, ScrollView, Image, Text } from 'react-native'
-import MapView, { Marker } from 'react-native-maps'
-import { styles } from './LocationDetailScreen.styles'
 import { Ionicons } from '@expo/vector-icons'
+import React from 'react'
+import { ScrollView, Text, View } from 'react-native'
+import { Carousel, Map } from '../../components'
 import { COLORS } from '../../utils/theme'
+import { styles } from './LocationDetailScreen.styles'
 
 export const LocationDetailScreen = ({ route }) => {
   const { item } = route.params
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.imageContainer}>
-        <ScrollView horizontal pagingEnabled style={styles.imageContainer}>
-          {item.images.map((image, idx) => (
-            <Image key={idx} source={image} style={styles.image} resizeMode='cover' />
-          ))}
-        </ScrollView>
-      </View>
+      <Carousel images={item.images} />
 
       <View style={styles.textContainer}>
         <Text style={styles.title}>{item.title}</Text>
@@ -27,23 +21,12 @@ export const LocationDetailScreen = ({ route }) => {
         </View>
         <Text style={styles.description}>{item.description}</Text>
       </View>
-      <MapView
-        style={styles.map}
-        initialRegion={{
-          latitude: item.locationCoordinates.latitude,
-          longitude: item.locationCoordinates.longitude,
-          latitudeDelta: 0.002,
-          longitudeDelta: 0.002
-        }}
-      >
-        <Marker
-          coordinate={{
-            latitude: item.locationCoordinates.latitude,
-            longitude: item.locationCoordinates.longitude
-          }}
-          title={item.title}
-        />
-      </MapView>
+
+      <Map
+        title={item.title}
+        latitude={item.locationCoordinates.latitude}
+        longitude={item.locationCoordinates.longitude}
+      />
     </ScrollView>
   )
 }
