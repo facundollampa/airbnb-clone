@@ -6,6 +6,7 @@ import { Carousel, Map } from '../../components'
 import { COLORS } from '../../utils/theme'
 import { Link } from '@react-navigation/native'
 import { UserContext } from '../../contexts/UserContext'
+import { SCREENS } from '../../utils/screens'
 
 export const LocationDetailScreen = ({ route }) => {
   const { item } = route.params
@@ -23,7 +24,7 @@ export const LocationDetailScreen = ({ route }) => {
           <Text style={styles.rating}>{item.rating}</Text>
         </View>
         {currentUser && (
-          <Link style={styles.webButton} to={{ screen: 'LocationDetailWeb', params: { url: item.url } }}>
+          <Link style={styles.webButton} to={{ screen: SCREENS.LOCATION_DETAIL_WEB, params: { url: item.url } }}>
             Ir a la web
           </Link>
         )}
